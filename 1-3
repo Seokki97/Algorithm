@@ -1,0 +1,13 @@
+package first;
+public class whileex {
+    public static void main(String[] args) {
+    	String a = "\\    /\\"; //자바에서 백슬래쉬 출력하려면 두번입력해야함.
+    	//String b 
+    	System.out.println("\\    /\\");
+    	System.out.println(" )  ( ')");
+    	System.out.println("(   /  )");
+    	System.out.println(" \\(__) |");
+    	
+    }
+}
+    

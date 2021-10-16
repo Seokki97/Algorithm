@@ -1,0 +1,39 @@
+package javamainl;
+import java.util.Scanner;
+import java.util.Arrays;
+/*그리디 알고리즘
+ *최적의 상황만을 쫓는 알고리즘 장점:속도가 매우 빠름 예)거스름돈 문제(10원짜리 50개보다 500원짜리 1개를 거슬러주는게 좋다.)
+ *무조건 큰 경우 or 작은 경우 or 긴 경우 or 짧은 경우 등 극단적인 문제에 이용한다. 이때 sort기법 함께 사용
+ *but, 당장 앞에 있는 가정이 최적인 것을 생각하기 때문에 복합적인 문제에는 항상 최적해가 되지 않는다.
+ *
+ */
+class solution{
+	Scanner sc = new Scanner(System.in);
+	int N = sc.nextInt();
+	int[] P = new int[N];
+	public void Input() {
+		for(int i =0; i< P.length ; i++) {
+			P[i] = sc.nextInt();
+		}
+	}
+	public void Greedy() {
+		int cal = 0;
+		int result = 0;
+		Arrays.sort(P);
+		for(int i = 0; i<P.length; i++) {
+			result = result + P[i]; 
+			cal += result;
+		}
+		System.out.println(cal);
+	}
+	
+}
+public class javapractice {
+	public static void main(String[] args) {
+		solution c1 = new solution();
+		c1.Input();
+		c1.Greedy();
+	}   
+	
+}
+

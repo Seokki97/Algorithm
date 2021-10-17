@@ -1,0 +1,44 @@
+package javamainl;
+import java.util.Scanner;
+import java.util.Arrays;
+/*그리디 알고리즘
+ *최적의 상황만을 쫓는 알고리즘 장점:속도가 매우 빠름 예)거스름돈 문제(10원짜리 50개보다 500원짜리 1개를 거슬러주는게 좋다.)
+ *무조건 큰 경우 or 작은 경우 or 긴 경우 or 짧은 경우 등 극단적인 문제에 이용한다. 이때 sort기법 함께 사용
+ *but, 당장 앞에 있는 가정이 최적인 것을 생각하기 때문에 복합적인 문제에는 항상 최적해가 되지 않는다.
+ *
+ */
+
+//두번째 -나옴 or 세번째 -나옴 이 두가지 경우 뿐임.
+class solution{
+	Scanner sc = new Scanner(System.in);
+	String N = sc.nextLine();
+	String[] solution = N.split("-"); //split() 함수를 이용하여 특정 문자열로 갈라 새로운 배열에 넣는다.
+	//int ret1 = Integer.parseInt(solution[0]); // String to int 형변환 하는법
+	//int ret2 = Integer.parseInt(solution[1]);
+	
+	
+	public void Input(){
+		int ret1;
+		int ret2;
+		int ret3;
+		int result = 0;
+		for(int i = 0; i<solution.length;i++) {
+			String[] add = solution[i].split("\\+"); //for문으로 한 이유는 어디에 +가 있는지 모르니까
+		
+			ret1 = Integer.parseInt(solution[0]);
+			ret2 = Integer.parseInt(solution[1]);
+			ret3 = Integer.parseInt(add[1]);
+		    result = ret1-(ret2+ret3);
+		
+		}
+		System.out.println(result);
+	}
+}
+public class javapractice {
+	public static void main(String[] args) {
+		solution c1 = new solution();
+		c1.Input();
+		//c1.Greedy();
+	}   
+	
+}

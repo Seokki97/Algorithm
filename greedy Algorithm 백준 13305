@@ -1,0 +1,55 @@
+
+
+/* 논리 -
+ * 처음에 그냥 경우의 수를 따져서 다중 if문으로 문제를 푸려고 했다. 근데 경우의 수가 너무 많고 코드가 복잡해질 것 같아서
+ * 고민해봤는데, 해결 방법을 모르겠어서 다른 사람의 풀이를 참고했다.
+ * 풀이는 - 결국 price[i]가 price[i+1] 보다 작으면 price[i]의 값을 사용하고 price[i+2]보다 작으면 또 그대로
+ * 사용하는 방식임을 이용하여 
+ * ex) 5 4 3 4 6 7 일경우 5와 4를 비교했는데 4가 더 작으니 1칸만 옮기고 4값을 cost에 저장한다.
+ * 그다음 4와 3을 비교하여 3을 cost에 저장하고 3과 4를 비교하였는데 3이 더 작으니 3을 그대로 저장하는 방식
+ * 결국 낮은값을 계속 이어나가는 방식이었음.
+ * 왜 이렇게 생각을 못했을까 라는 아쉬움과, 이런 방식으로 생각할수도 있구나 라는 놀라움,, 
+ * 
+ */
+class solution{
+	Scanner sc = new Scanner(System.in);
+	int N = sc.nextInt(); //도시의 개수
+	int[] length = new int[N-1];
+	int[] price = new int[N];
+
+	int calculate = 0;
+	public void input() {
+		for(int i = 0; i<N-1; i++) {
+			length[i] = sc.nextInt(); //도로의 길이
+		}
+		
+		for(int j =0; j<N; j++ ) {
+			price[j] = sc.nextInt(); //리터당 가격 
+		}
+	}
+	public void Case_1() {
+		int cost = price[0];
+		int sum = 0;
+		for(int i =0; i< N-1; i++) {
+			if( price[i] <= cost) {
+				cost = price[i];
+			}
+			sum += (cost*length[i]);
+		}
+		System.out.println(sum);
+		
+	}
+	
+	
+}
+	
+public class javapractice {
+	public static void main(String[] args) {
+		solution c1 = new solution();
+		c1.input();
+		c1.Case_1();
+		
+	}   
+	
+}
+

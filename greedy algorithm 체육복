@@ -1,0 +1,38 @@
+package javamainl;
+import java.util.Scanner;
+import java.util.Arrays;
+
+/* 바로 뒷번호나 바로 앞번호에게만 빌려줄수있음. 
+ * 만약에 전체 학생이 5명이야
+ *  o o x o x면 2번이 3번빌려주고 4번이 5번빌려줘야함 이걸 구현해야해.
+ * 여벌 가져온 애가 도난 당하면 자기꺼 써야함
+ * 1 2 4 가 여벌이고 3 5가 도난이면 
+ *  reserve -1 or reserve +1 = lost --> answer++
+ *  case 1 ) 그냥 빌려주는거 . case 2 ) reserve가 잃어버렸을 때.
+ *  ex  o x o o o x o o x 이면
+ */ 
+
+class solution{
+	public int Solution(int n , int[] lost, int[] reserve) {
+		int answer = reserve.length;
+		
+		for(int i=0 ; i < reserve.length; i++) {	
+			if(reserve[i]-1 == lost[0]) {
+				answer += 1;
+				}		
+			}	
+		
+		return answer;
+	}
+}
+	
+public class javapractice {
+	public static void main(String[] args) {
+		int[] numarr1 = {2,4};
+		int[] numarr2 = {1,3,5};
+		solution c1 = new solution();
+		System.out.println(c1.Solution(5, numarr1, numarr2));
+		
+	}   
+	
+}

@@ -14,25 +14,34 @@ import java.util.Arrays;
 
 class solution{
 	public int Solution(int n , int[] lost, int[] reserve) {
-		int answer = reserve.length;
+		int answer = n - lost.length;
 		
 		for(int i=0 ; i < reserve.length; i++) {	
-			if(reserve[i]-1 == lost[0]) {
+			for(int j = 0 ; j < lost.length; j++) {
+			if(reserve[i]-1 == lost[j] || reserve[i]+1 == lost[j]) {
 				answer += 1;
-				}		
-			}	
+				reserve[i] = -1;	
+				} 
+			if(reserve[i] == lost[j]) {
+				answer += 0;
+				lost[j] = -1;
+				reserve[i] = -1;
+			} 	////자기껄 쓴걸 먼저 제외시키고 , 그다음 경우의수를 생각함.
+					
 		
-		return answer;
+	}
+} return answer;
 	}
 }
 	
 public class javapractice {
 	public static void main(String[] args) {
-		int[] numarr1 = {2,4};
-		int[] numarr2 = {1,3,5};
+		int[] numarr1 = {3,4,5};
+		int[] numarr2 = {3};
 		solution c1 = new solution();
 		System.out.println(c1.Solution(5, numarr1, numarr2));
 		
 	}   
 	
 }
+

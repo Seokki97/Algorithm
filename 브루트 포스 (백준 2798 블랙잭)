@@ -1,0 +1,59 @@
+package javamainl;
+import java.util.Scanner;
+import java.util.Arrays;
+
+/* 브루트 포스(Brute Force)
+ * 모든 경우의 수를 탐색하면서 요구 조건에 충족하는 결과만을 가져오는것(노가다..ㅋ)
+ * 단점- 복잡도에 매우 민감함
+ */ 
+class solution{
+	Scanner sc = new Scanner(System.in);
+	int n = sc.nextInt(); //n장의 카드
+	int m = sc.nextInt(); // 부른 숫자
+	int add = 0;
+	int result = 0;
+	int[] arr = new int[n]; //배열 생성
+	
+	public void Input() {
+		for(int i = 0 ; i<n ; i++) {
+			arr[i] = sc.nextInt(); //n장의 카드 숫자들
+		}
+	}
+	/* 3개의 값을 더했을때 m보다 작거나 같아야함 (조건1)
+	 * 3개의 합이 m과 제일 가까워햐함.
+	 * 3중for문으로 인덱스 순회를 해야함 -> 이때 첫번쨰 중복되면 안되기때문에 첫번째 for문은 0
+	 * 두번쨰 for문은 첫번째 경우 다음, 세번쨰 for문은 그 다음부터 순회하게 만듦.
+	 */
+	public void black_jack() {
+		
+		for(int i = 0; i < arr.length; i++) {
+		
+			for(int j = i+1; j< arr.length; j++) {
+			
+				for(int x = j+1; x< arr.length; x++) {
+				
+					add = arr[i]+ arr[j] + arr[x];
+						if(add == m) {
+							System.out.println(add);
+						}
+						else if(result < add && add <m) {
+							result = add; //이것좀 익숙해지자.. 새로운 값 담는거..
+						}
+					
+				}
+			}
+		}
+		System.out.println(result);
+	}
+}
+public class javapractice {
+	
+	public static void main(String[] args) {
+	solution c1 = new solution();
+	c1.Input();
+	c1.black_jack();
+	
+	}   
+	
+}
+

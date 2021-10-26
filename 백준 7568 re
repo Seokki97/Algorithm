@@ -1,0 +1,55 @@
+package javamainl;
+import java.util.Scanner;
+import java.util.Arrays;
+
+/* 브루트 포스(Brute Force)
+ * 모든 경우의 수를 탐색하면서 요구 조건에 충족하는 결과만을 가져오는것(노가다..ㅋ)
+ * 단점- 복잡도에 매우 민감함
+ */ 
+class solution{
+	Scanner sc = new Scanner(System.in);
+	int N = sc.nextInt();
+	int A;
+	int B;
+	int C;
+	int D;
+	int E;
+	int[][] information = new int[N][2]; //2차원배열 생성법
+	
+	public void Input() { //2차원배열 입력받기 - 행 열 순으로 입력받는다.
+		for(int i =0; i <information.length; i++) {
+			for(int j =0; j <information[i].length; j++) {
+				information[i][j] = sc.nextInt();
+			}
+		}
+	}
+		public void wieght() {
+			for(int i = 0 ; i< information.length; i++) {
+				int number=  1;
+				for(int j = 0; j< information[i].length; j++) {
+					if(i==j) continue;
+					if(information[i][0]< information[j][0] && information[i][1]< information[j][1] ) {
+						number ++;
+						//
+				
+					}
+			}
+				System.out.println(number);
+		}
+	
+}
+}
+	// 키 몸무게 모두 다 크면 덩치 큼. 둘이 서로 다르면 비교 불가 -> 등수가 같음
+	// 0 0 - 1 0 // 0 1 1 1 이렇게 비교해야하는데.. 어렵고..
+	// 00 10 20 30 40 비교해서 
+	//0 0 1 0 2 0 3 0 4 0 5 0
+public class javapractice {
+	
+	public static void main(String[] args) {
+	solution c1 = new solution();
+	c1.Input();
+	c1.wieght();
+	}   
+	
+}
+

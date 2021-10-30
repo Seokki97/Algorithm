@@ -1,0 +1,50 @@
+package javamainl;
+import java.util.Scanner;
+import java.util.Arrays;
+
+/*정렬 알고리즘
+ * 정렬이란 데이터를 특정한 기준에 따라 순서대로 나열하는 것
+ * 정렬 알고리즘은 이진 탐색의 전처리 과정임.
+ * 1. 선택 정렬 알고리즘
+ * 가장 원시적인 방법.
+ * 데이터가 무작위로 여러 개 있다고 가정할 때, 가장 작은 데이터를 선택해 맨 앞에 데이터와 바꾸고, 
+ * 그 다음 작은 데이터를 선택해 앞에서 두 번째 데이터와 바꾸는 과정을 반복하는 것.
+ * 시간복잡도 - 매번 가장 작은 수를 찾기 위해 
+ */
+class solution{
+	Scanner sc = new Scanner(System.in);
+	int N = sc.nextInt();
+	int[] arr = new int[N];
+public void input() {
+	for(int i = 0 ; i < arr.length; i++) {
+		arr[i] = sc.nextInt();
+		}
+	} // 0번째보다 첫번째가 크니까 0번째 원소를 첫번째에 놓고 첫번째 원소를 0번째에 넣는거
+	public void Selection_Sort() {
+		for(int i = 0; i<arr.length; i++) {
+			for(int j = i+1; j<arr.length; j++) {
+				if(arr[i] > arr[j]) {
+					int tmp = arr[j]; //tmp에 arr[j]를 넣고 (후에 i랑 j랑 바꿔주어야 하기 때문에 새로운 변수에 넣어두는것.)
+					arr[j]= arr[i]; // arr[i]랑 arr[j]랑 바꿔준 뒤
+					arr[i] = tmp; //arr[i]에 tmp를 넣는다
+				}
+			}
+		}
+	}
+	public void exe() {
+		for(int i =0; i <arr.length; i++) {
+			System.out.println(arr[i]);
+			}
+	}
+}
+public class javapractice {
+	
+	public static void main(String[] args) {
+	solution c1 = new solution();
+	c1.input();
+	c1.Selection_Sort();
+	c1.exe();
+	}   
+	
+}
+

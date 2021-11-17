@@ -1,0 +1,39 @@
+class solution{
+	Scanner sc = new Scanner(System.in);
+	int K = sc.nextInt();
+	int N = sc.nextInt();
+	int[] scoville = new int[N];
+	
+	public void input() {
+		for(int i = 0; i<scoville.length; i++) {
+			scoville[i] = sc.nextInt();		}
+	}
+	public void sort() {
+		Arrays.sort(scoville);
+			
+		}
+		public void calculate() {
+			int result = 0;
+			for(int i = 0 ; i < scoville.length; i++ ) {
+				for(int j = i+1; j < scoville.length; j++) {
+					if(scoville[i]<K && scoville[i] > 0) {
+						scoville[i] = scoville[i]+(scoville[j]*2);
+						scoville[j] = -1;
+						result++;
+						
+					}
+				}
+			}
+			System.out.println(result);
+		}
+		
+}
+public class javapractice {
+	public static void main(String[] args) {
+	solution c1 = new solution();
+	c1.input();
+	c1.sort();
+	c1.calculate();
+	
+	}   	
+}

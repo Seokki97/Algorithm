@@ -1,0 +1,19 @@
+import java.util.Arrays;
+class Solution {
+    public String solution(String phone_number) {
+        String answer = "";
+        char[] phone_number1 = new char[phone_number.length()];
+        for(int i = 0 ; i<phone_number1.length; i++){
+            phone_number1[i] = phone_number.charAt(i);
+        }
+        // 01023464844;
+        int k = phone_number1.length; //7이면
+        int m = k-4;
+        for(int j = 0; j<m; j++){
+            phone_number1[j] = "*";
+        }
+        // * * * * * * 0 9 9 6 
+        String answer = Arrays.toString[phone_number1];
+        return answer;
+    }
+}

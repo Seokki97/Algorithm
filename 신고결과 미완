@@ -1,0 +1,39 @@
+class Solution {
+    /* 한번에 한명 신고가능
+    동일한 유저 신고는 1`회로처리
+    k번이상 신고되면 정지, 그리고 신고한 유저에게 정지사실 보냄
+    id_list - 이용자 아이디, 이용자가 신고한 이용자의 id - report, 정지기준횟수 k
+    return - > 처리결과 메일을 받은 횟수
+    */
+    // 배열을 새로 생성해서 
+    //무지 프로도 , 무지 네오, 어피치 프로도, 어피치 무지, 프로도 네오
+    //-> 프로도 두번 = 무지 +1 , 어피치 +1 ,네오 두번 -> 무지 +1, 프로도 +1
+    public int[] solution(String[] id_list, String[] report, int k) {
+        int[] answer = new int[id_list.length];
+        // return에 담길 신고결과 메일수
+        String kim = "";
+        String mim = "";
+        String[] apart = new String[2];
+        String[] left = new String[report.length]; //왼쪽이름
+        String[] right = new String[report.length]; //오른쪽 이름
+        for(int i = 0 ; i<report.length; i++){
+        apart = report[i].split(" ");
+        kim = apart[0];
+        mim = apart[1];
+        left[i] = kim;
+        right[i] = mim;
+        } //left배열에 왼쪽 이름들이 담기고 right배열에 오른쪽 이름들이 담긴다.
+        //이제 오른쪽 배열에서 중복되는 이름이 2개이상인걸 찾아서 그 배열의 갯수만큼 칸에 더해주면 된다.
+        for(int i = 0 ; i < report.length-1; i++){
+            for(int j = i+1 ; j < report.length; j++){
+                if( right[i].equals(right[j])&& right[j] != "-1"){
+                    answer[i] = 1;
+                    answer[j] +=1 ;
+                    right[j] = "-1";
+                }
+                }
+                } //순회인데, apart 1 2 3 4 5 6 7 했어 -> 1 2같으면  1에 1더해주고 2에도 1더해줌
+            
+     return answer;   
+    }
+}
